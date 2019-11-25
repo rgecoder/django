@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Index Page</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'word/css/main.css' %}">
+</head>
+
+<body>
+  <div class="left">
+    <h2>Index</h2>
+
+    <form action='/word/add_word' method='POST'>
+      {% csrf_token %}
+      <label>
+        Add a new Word<input type='text' name='word'>
+      </label>
+      <br>
+      <label>
+        Choose a color:
+        <input type='radio' name='color' value='red' checked>Red
+        <input type='radio' name='color' value='green'>Green
+        <input type='radio' name='color' value='blue'>Blue
+        <br>
+        <input type='checkbox' name='big_font' value='1'>Show in big fonts!
+      </label>
+      <br>
+      <button type='submit'>Submit</button>
+    </form>
+  </div>
+
+  <div class = "right">
+    <form action='/word/clear' method='POST'>
+    {% csrf_token %}
+    <button type="sutmit">Clear Session</button>
+    </form>
+    
+    {% for word in request.session.words %}
+    <p><span class='{{word.color}} {{word.font}}'>{{word.word}}</span><span class='tiny'>- added on {{word.time}}</span></p>
+    {% endfor %}
+  </div>
+</body>
+
+</html>

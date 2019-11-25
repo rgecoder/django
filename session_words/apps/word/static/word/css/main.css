@@ -1,0 +1,38 @@
+h2{
+  color:green;
+}
+div.left{
+  display:inline-block;
+  width:45%;
+}
+
+div.right{
+  display:inline-block;
+  width:45%;
+  vertical-align:top;
+}
+
+.red{
+  color: red;
+}
+
+.green{
+  color: green;
+}
+
+.blue{
+  color: blue;
+}
+
+.big{
+  font-size: 2em;
+
+}
+
+.small{
+  font-size: 1em;
+}
+
+.tiny{
+  font-size:10px;
+}
